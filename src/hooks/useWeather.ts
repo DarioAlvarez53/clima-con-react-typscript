@@ -1,16 +1,16 @@
 import axios from "axios";
 import { SearchType, Weather } from "../types";
 
-function isWeatherResponse(weather: unknown) {
-    return (
-        Boolean(weather) &&
-        typeof weather === 'object' && //te retorna el tipo de dato que tiene una variable
-        typeof (weather as Weather).name === 'string' &&
-        typeof (weather as Weather).main.temp === 'number' &&
-        typeof (weather as Weather).main.temp_max === 'number' &&
-        typeof (weather as Weather).main.temp_min === 'number'
-    )
-}
+// function isWeatherResponse(weather: unknown) {
+//     return (
+//         Boolean(weather) &&
+//         typeof weather === 'object' && //te retorna el tipo de dato que tiene una variable
+//         typeof (weather as Weather).name === 'string' &&
+//         typeof (weather as Weather).main.temp === 'number' &&
+//         typeof (weather as Weather).main.temp_max === 'number' &&
+//         typeof (weather as Weather).main.temp_min === 'number'
+//     )
+// }
 
 export default function useWeather() {
 
@@ -41,10 +41,11 @@ export default function useWeather() {
             // console.log(weatherResult);
             
             // Type guards = con esta si puedes garantizar que es de esa forma
-            const { data: weatherResult } = await axios(weatherUrl)
-            const result = isWeatherResponse(weatherResult)
-            console.log(result);
+            // const { data: weatherResult } = await axios(weatherUrl)
+            // const result = isWeatherResponse(weatherResult)
+            // console.log(result);
             
+            //Implementando libreria Zod
 
         } catch (error) {
             console.log(error);
