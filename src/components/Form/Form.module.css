@@ -9,14 +9,14 @@
     background-color: transparent;
     border: .3rem solid var(--white);
     border-radius: 2rem;
-    color: var(--white);
+    color: black;
     font-size: 1.8rem;
     font-weight: 400;
 }
 
-.field ::placeholder {
+/* .field ::placeholder {
     color: var(--white);
-}
+} */
 
 .submit {
     background-color: var(--primary);
