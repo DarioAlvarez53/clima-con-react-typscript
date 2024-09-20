@@ -5,6 +5,7 @@ import useWeather from "./hooks/useWeather"
 function App() {
 
   const { fetchWeather } = useWeather()
+  
 
   return (
     <>
