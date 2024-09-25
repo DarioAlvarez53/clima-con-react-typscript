@@ -55,6 +55,9 @@ export default function useWeather() {
     //Creando un spinner de carga
     const [loading, setLoading] = useState(false)
 
+    //En caso de no encontrar la ciudad
+    const [notFound, setNotFound] = useState(false)
+
     //Funcion que va a consultar el clima
     const fetchWeather = async (search: SearchType) => {
         // console.log('Consultando...');
@@ -70,6 +73,12 @@ export default function useWeather() {
 
             const {data} = await axios(geoUrl) //de forma default viene axios.get()
             // console.log(data);
+
+            //Comprobar si existe
+            if(!data[0]) {
+                setNotFound(true)
+                return
+            }
             
 
             //creando la variable para traer la latitud
@@ -119,7 +128,8 @@ export default function useWeather() {
     return {
         weather,
         loading,
+        notFound,
         fetchWeather,
-        hasWeatherData
+        hasWeatherData,
     }
 }
