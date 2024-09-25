@@ -1,11 +1,12 @@
 import styles from "./App.module.css"
 import Form from "./components/Form/Form"
+import Spiner from "./components/Spinner/Spiner"
 import WeatherDetail from "./components/WeatherDetail/WeatherDetail"
 import useWeather from "./hooks/useWeather"
 
 function App() {
 
-  const { weather, fetchWeather, hasWeatherData } = useWeather()
+  const { weather, fetchWeather, hasWeatherData, loading } = useWeather()
   
 
   return (
@@ -17,6 +18,7 @@ function App() {
           fetchWeather={fetchWeather}
         />
 
+        {loading && <Spiner />}
         {hasWeatherData && 
           <WeatherDetail 
             weather={weather}
